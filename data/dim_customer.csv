@@ -1,0 +1,251 @@
+customer_id,name,email,country,region,signup_date,is_active
+CUST-0001,Olivia Chen,olivia.chen0@example.com,Canada,Ontario,2023-01-20,True
+CUST-0002,Liam Martinez,liam.martinez1@example.com,USA,California,2023-08-11,True
+CUST-0003,Emma Schmidt,emma.schmidt2@example.com,Germany,Germany,2024-02-15,True
+CUST-0004,Noah Rodriguez,noah.rodriguez3@example.com,USA,Texas,2023-04-05,False
+CUST-0005,Sophia Tremblay,sophia.tremblay4@example.com,Canada,Quebec,2023-10-30,True
+CUST-0006,William Dubois,william.dubois5@example.com,France,France,2023-06-21,True
+CUST-0007,Isabella Lee,isabella.lee6@example.com,Canada,British Columbia,2023-12-01,True
+CUST-0008,James Garcia,james.garcia7@example.com,USA,Florida,2023-03-18,True
+CUST-0009,Charlotte Müller,charlotte.muller8@example.com,Germany,Germany,2023-09-07,False
+CUST-0010,Benjamin Scott,benjamin.scott9@example.com,USA,New York,2022-12-10,True
+CUST-0011,Amelia Roy,amelia.roy10@example.com,Canada,Quebec,2023-07-25,True
+CUST-0012,Lucas Conti,lucas.conti11@example.com,Italy,Italy,2024-01-19,True
+CUST-0013,Mia Patel,mia.patel12@example.com,Canada,Ontario,2023-05-14,True
+CUST-0014,Elijah Wright,elijah.wright13@example.com,USA,California,2023-11-23,True
+CUST-0015,Ava van der Meer,ava.vandermeer14@example.com,Netherlands,Netherlands,2023-08-28,True
+CUST-0016,Oliver Kim,oliver.kim15@example.com,USA,Washington,2024-03-04,True
+CUST-0017,Evelyn Gagnon,evelyn.gagnon16@example.com,Canada,Quebec,2023-02-11,False
+CUST-0018,Logan Silva,logan.silva17@example.com,Portugal,Portugal,2023-10-02,True
+CUST-0019,Abigail Murphy,abigail.murphy18@example.com,Ireland,Ireland,2023-06-08,True
+CUST-0020,Mason Taylor,mason.taylor19@example.com,USA,Texas,2023-01-29,True
+CUST-0021,Harper Andersen,harper.andersen20@example.com,Denmark,Denmark,2024-04-10,True
+CUST-0022,Ethan Wilson,ethan.wilson21@example.com,Canada,Alberta,2023-09-15,True
+CUST-0023,Emily Moore,emily.moore22@example.com,USA,Illinois,2023-05-26,True
+CUST-0024,Daniel Moreau,daniel.moreau23@example.com,France,France,2023-11-17,True
+CUST-0025,Madison Clark,madison.clark24@example.com,USA,Arizona,2023-08-03,True
+CUST-0026,Alexander Lévesque,alexander.levesque25@example.com,Canada,Quebec,2024-01-05,True
+CUST-0027,Sofia Rossi,sofia.rossi26@example.com,Italy,Italy,2023-07-11,True
+CUST-0028,Jacob Lewis,jacob.lewis27@example.com,USA,Georgia,2023-02-28,True
+CUST-0029,Avery Johansson,avery.johansson28@example.com,Sweden,Sweden,2023-10-18,True
+CUST-0030,Scarlett Brown,scarlett.brown29@example.com,Canada,Ontario,2023-04-22,False
+CUST-0031,Jack Davis,jack.davis30@example.com,USA,North Carolina,2023-12-20,True
+CUST-0032,Lily Bauer,lily.bauer31@example.com,Germany,Germany,2023-06-14,True
+CUST-0033,Luke Walker,luke.walker32@example.com,USA,Ohio,2024-03-25,True
+CUST-0034,Chloe Singh,chloe.singh33@example.com,Canada,British Columbia,2023-09-29,True
+CUST-0035,Henry Martin,henry.martin34@example.com,France,France,2023-05-09,True
+CUST-0036,Zoey Hall,zoey.hall35@example.com,USA,Pennsylvania,2023-01-12,True
+CUST-0037,Owen Murphy,owen.murphy36@example.com,Ireland,Ireland,2023-08-22,True
+CUST-0038,Grace Campbell,grace.campbell37@example.com,Canada,Nova Scotia,2023-11-04,True
+CUST-0039,Leo Virtanen,leo.virtanen38@example.com,Finland,Finland,2024-02-08,True
+CUST-0040,Nora Allen,nora.allen39@example.com,USA,Michigan,2023-07-01,True
+CUST-0041,Samuel Bernard,samuel.berna40@example.com,France,France,2023-10-11,False
+CUST-0042,Riley King,riley.king41@example.com,USA,Virginia,2023-04-14,True
+CUST-0043,Hannah Olsen,hannah.olsen42@example.com,Norway,Norway,2023-12-28,True
+CUST-0044,Carter Stewart,carter.stewart43@example.com,Canada,Ontario,2023-08-09,True
+CUST-0045,Addison Perez,addison.perez44@example.com,USA,Florida,2023-03-07,True
+CUST-0046,Mateo Alonso,mateo.alonso45@example.com,Spain,Spain,2024-01-31,True
+CUST-0047,Aubrey MacDonald,aubrey.macdonald46@example.com,Canada,Ontario,2023-06-25,True
+CUST-0048,Julian Weber,julian.weber47@example.com,Germany,Germany,2023-09-21,True
+CUST-0049,Stella Rogers,stella.rogers48@example.com,USA,Massachusetts,2023-05-19,True
+CUST-0050,Gabriel Costa,gabriel.costa49@example.com,Portugal,Portugal,2023-11-11,True
+CUST-0051,Leah Scott,leah.scott50@example.com,Canada,Alberta,2024-02-22,True
+CUST-0052,Christopher Green,christopher.green51@example.com,USA,Colorado,2023-07-18,True
+CUST-0053,Penelope Laurent,penelope.laurent52@example.com,France,France,2023-10-25,False
+CUST-0054,Isaac Adams,isaac.adams53@example.com,USA,Maryland,2023-04-02,True
+CUST-0055,Victoria Novak,victoria.novak54@example.com,Poland,Poland,2023-12-14,True
+CUST-0056,Ryan Johnston,ryan.johnston55@example.com,Canada,Manitoba,2023-08-16,True
+CUST-0057,Layla Baker,layla.baker56@example.com,USA,Indiana,2023-03-23,True
+CUST-0058,David Schneider,david.schneider57@example.com,Germany,Germany,2024-01-09,True
+CUST-0059,Eleanor White,eleanor.white58@example.com,Canada,Ontario,2023-06-02,True
+CUST-0060,Jayden Nelson,jayden.nelson59@example.com,USA,Wisconsin,2023-11-28,True
+CUST-0061,Claire Moreau,claire.moreau60@example.com,Canada,Quebec,2023-09-03,True
+CUST-0062,Anthony Romano,anthony.romano61@example.com,Italy,Italy,2023-05-24,True
+CUST-0063,Audrey Hill,audrey.hill62@example.com,USA,Tennessee,2024-03-11,True
+CUST-0064,Joshua O'Brien,joshua.obrien63@example.com,Ireland,Ireland,2023-08-31,True
+CUST-0065,Bella Kumar,bella.kumar64@example.com,Canada,British Columbia,2023-04-27,False
+CUST-0066,Andrew Harris,andrew.harris65@example.com,USA,Missouri,2023-12-07,True
+CUST-0067,Skylar Fischer,skylar.fischer66@example.com,Germany,Germany,2023-07-29,True
+CUST-0068,Joseph Thompson,joseph.thompson67@example.com,Canada,Ontario,2024-02-19,True
+CUST-0069,Samantha Parker,samantha.parker68@example.com,USA,South Carolina,2023-06-18,True
+CUST-0070,David Dubois,david.dubois69@example.com,France,France,2023-10-06,True
+CUST-0071,Natalie Young,natalie.young70@example.com,USA,Oklahoma,2023-05-02,True
+CUST-0072,Adrian de Jong,adrian.dejong71@example.com,Netherlands,Netherlands,2023-09-11,True
+CUST-0073,Brooklyn Wright,brooklyn.wright72@example.com,Canada,Alberta,2024-01-23,True
+CUST-0074,Christian Jensen,christian.jensen73@example.com,Denmark,Denmark,2023-11-14,True
+CUST-0075,Genesis Flores,genesis.flores74@example.com,USA,Nevada,2023-07-06,True
+CUST-0076,Eva Girard,eva.girard75@example.com,Canada,Quebec,2023-03-14,True
+CUST-0077,Maximilian Wagner,maximilian.wagner76@example.com,Germany,Germany,2023-12-23,True
+CUST-0078,Aaliyah Morris,aaliyah.morris77@example.com,USA,Kentucky,2023-08-01,False
+CUST-0079,Charles Petit,charles.petit78@example.com,France,France,2024-04-01,True
+CUST-0080,Allison Campbell,allison.campbell79@example.com,Canada,Ontario,2023-05-11,True
+CUST-0081,Damian Kowalski,damian.kowalski80@example.com,Poland,Poland,2023-10-21,True
+CUST-0082,Katherine Hall,katherine.hall81@example.com,USA,Alabama,2023-06-05,True
+CUST-0083,Xavier Cote,xavier.cote82@example.com,Canada,Quebec,2024-02-05,True
+CUST-0084,Maya Svensson,maya.svensson83@example.com,Sweden,Sweden,2023-09-25,True
+CUST-0085,Jaxon Phillips,jaxon.phillips84@example.com,USA,Oregon,2023-04-09,True
+CUST-0086,Anna Ivanova,anna.ivanova85@example.com,Canada,Ontario,2023-11-20,True
+CUST-0087,Leonardo Ferreira,leonardo.ferreira86@example.com,Portugal,Portugal,2023-07-22,True
+CUST-0088,Hailey King,hailey.king87@example.com,USA,Connecticut,2024-03-19,True
+CUST-0089,Thomas Becker,thomas.becker88@example.com,Germany,Germany,2023-08-25,True
+CUST-0090,Ellie Johnston,ellie.johnston89@example.com,Canada,British Columbia,2023-03-30,False
+CUST-0091,Josiah Cooper,josiah.cooper90@example.com,USA,Iowa,2023-12-02,True
+CUST-0092,Clara Simon,clara.simon91@example.com,France,France,2023-06-29,True
+CUST-0093,Robert Brown,robert.brown92@example.com,Canada,Ontario,2024-01-14,True
+CUST-0094,Camila Sanchez,camila.sanchez93@example.com,USA,New Mexico,2023-09-08,True
+CUST-0095,Giulia Ricci,giulia.ricci94@example.com,Italy,Italy,2023-05-29,True
+CUST-0096,Elias Larsen,elias.larsen95@example.com,Norway,Norway,2023-11-08,True
+CUST-0097,Nevaeh Edwards,nevaeh.edwards96@example.com,USA,Kansas,2023-07-14,True
+CUST-0098,Tristan Gauthier,tristan.gauthier97@example.com,Canada,Quebec,2024-03-08,True
+CUST-0099,Sarah Kelly,sarah.kelly98@example.com,Ireland,Ireland,2023-08-18,True
+CUST-0100,Jason Turner,jason.turner99@example.com,USA,Utah,2023-04-24,True
+CUST-0101,Quinn Leblanc,quinn.leblanc100@example.com,Canada,New Brunswick,2023-10-15,True
+CUST-0102,Luis Fernandez,luis.fernandez101@example.com,Spain,Spain,2023-06-11,False
+CUST-0103,Violet Mitchell,violet.mitchell102@example.com,USA,Arkansas,2024-02-12,True
+CUST-0104,Felix Hoffmann,felix.hoffmann103@example.com,Germany,Germany,2023-09-18,True
+CUST-0105,Aria Johnson,aria.johnson104@example.com,Canada,Ontario,2023-05-05,True
+CUST-0106,Dominic Bell,dominic.bell105@example.com,USA,Mississippi,2023-12-25,True
+CUST-0107,Alice Laurent,alice.laurent106@example.com,France,France,2023-08-05,True
+CUST-0108,Miles Reid,miles.reid107@example.com,Canada,Saskatchewan,2024-03-29,True
+CUST-0109,Gianna Carter,gianna.carter108@example.com,USA,Nebraska,2023-07-09,True
+CUST-0110,Arthur Rousseau,arthur.rousseau109@example.com,France,France,2023-11-25,True
+CUST-0111,Willow Evans,willow.evans110@example.com,Canada,Manitoba,2023-04-18,True
+CUST-0112,Mila Jansen,mila.jansen111@example.com,Netherlands,Netherlands,2024-01-02,True
+CUST-0113,Ezekiel Turner,ezekiel.turner112@example.com,USA,West Virginia,2023-06-22,True
+CUST-0114,Ivy Cook,ivy.cook113@example.com,Canada,Ontario,2023-10-09,False
+CUST-0115,Jasper Nielsen,jasper.nielsen114@example.com,Denmark,Denmark,2023-08-14,True
+CUST-0116,Naomi Stewart,naomi.stewart115@example.com,USA,New Hampshire,2024-02-26,True
+CUST-0117,Axel Berger,axel.berger116@example.com,Sweden,Sweden,2023-05-16,True
+CUST-0118,Piper Macdonald,piper.macdonald117@example.com,Canada,Nova Scotia,2023-12-09,True
+CUST-0119,Silas Foster,silas.foster118@example.com,USA,Idaho,2023-07-27,True
+CUST-0120,Eliana Zimmermann,eliana.zimmermann119@example.com,Germany,Germany,2024-03-15,True
+CUST-0121,Theodore Price,theodore.price120@example.com,USA,Hawaii,2023-09-01,True
+CUST-0122,Aurora Paquette,aurora.paquette121@example.com,Canada,Quebec,2023-04-01,True
+CUST-0123,Elena Colombo,elena.colombo122@example.com,Italy,Italy,2023-11-01,True
+CUST-0124,Everett Cole,everett.cole123@example.com,USA,Montana,2023-06-16,False
+CUST-0125,Valentina O'Sullivan,valentina.osullivan124@example.com,Ireland,Ireland,2024-01-28,True
+CUST-0126,Dean Singh,dean.singh125@example.com,Canada,British Columbia,2023-08-20,True
+CUST-0127,Cora Perry,cora.perry126@example.com,USA,Rhode Island,2023-03-27,True
+CUST-0128,Oscar Boucher,oscar.boucher127@example.com,France,France,2023-10-28,True
+CUST-0129,Ruby Russell,ruby.russell128@example.com,Canada,Ontario,2024-04-05,True
+CUST-0130,Leo Harrison,leo.harrison129@example.com,USA,Delaware,2023-05-22,True
+CUST-0131,Emilia Nowak,emilia.nowak130@example.com,Poland,Poland,2023-12-18,True
+CUST-0132,Weston Murray,weston.murray131@example.com,Canada,Alberta,2023-07-04,True
+CUST-0133,Adeline Graham,adeline.graham132@example.com,USA,Maine,2024-02-01,True
+CUST-0134,Max Kraus,max.kraus133@example.com,Germany,Germany,2023-09-13,True
+CUST-0135,Sadie Fournier,sadie.fournier134@example.com,Canada,Quebec,2023-04-11,True
+CUST-0136,Luca Kennedy,luca.kennedy135@example.com,Ireland,Ireland,2023-11-06,True
+CUST-0137,Serenity Peterson,serenity.peterson136@example.com,USA,South Dakota,2023-06-30,True
+CUST-0138,Finn Korhonen,finn.korhonen137@example.com,Finland,Finland,2024-03-22,True
+CUST-0139,Hazel Crawford,hazel.crawford138@example.com,Canada,Ontario,2023-08-24,False
+CUST-0140,Rowan Barnes,rowan.barnes139@example.com,USA,North Dakota,2023-05-08,True
+CUST-0141,Alice Costa,alice.costa140@example.com,Portugal,Portugal,2023-12-31,True
+CUST-0142,Kai Henderson,kai.henderson141@example.com,Canada,British Columbia,2023-07-19,True
+CUST-0143,Isla Bailey,isla.bailey142@example.com,USA,Alaska,2024-01-21,True
+CUST-0144,Matteo Schumacher,matteo.schumacher143@example.com,Germany,Germany,2023-10-13,True
+CUST-0145,Nova Gilbert,nova.gilbert144@example.com,Canada,Quebec,2023-06-09,True
+CUST-0146,Josiah Romero,josiah.romero145@example.com,USA,Wyoming,2023-09-27,True
+CUST-0147,Amara de Vries,amara.devries146@example.com,Netherlands,Netherlands,2024-04-12,True
+CUST-0148,Asher Ross,asher.ross147@example.com,Canada,Saskatchewan,2023-05-27,True
+CUST-0149,Genevieve Ryan,genevieve.ryan148@example.com,Ireland,Ireland,2023-11-18,True
+CUST-0150,Jameson Butler,jameson.butler149@example.com,USA,Vermont,2023-08-07,True
+CUST-0151,Elodie Lambert,elodie.lambert150@example.com,France,France,2024-02-16,True
+CUST-0152,Elias Wood,elias.wood151@example.com,Canada,Manitoba,2023-07-24,True
+CUST-0153,Delilah Hunt,delilah.hunt152@example.com,USA,California,2023-10-04,True
+CUST-0154,Hugo Larsson,hugo.larsson153@example.com,Sweden,Sweden,2024-01-07,True
+CUST-0155,Sophie Michaud,sophie.michaud154@example.com,Canada,Quebec,2023-06-13,False
+CUST-0156,Sawyer Wallace,sawyer.wallace155@example.com,USA,Texas,2023-12-12,True
+CUST-0157,Lorenzo Greco,lorenzo.greco156@example.com,Italy,Italy,2023-08-29,True
+CUST-0158,Clara Armstrong,clara.armstrong157@example.com,Canada,Ontario,2024-03-01,True
+CUST-0159,Beckett Stone,beckett.stone158@example.com,USA,Florida,2023-05-13,True
+CUST-0160,Freja Sørensen,freja.sorensen159@example.com,Denmark,Denmark,2023-11-23,True
+CUST-0161,Thiago Gomes,thiago.gomes160@example.com,Portugal,Portugal,2024-02-28,True
+CUST-0162,Everly Nguyen,everly.nguyen161@example.com,Canada,Ontario,2023-07-16,True
+CUST-0163,Gael Ruiz,gael.ruiz162@example.com,Spain,Spain,2023-10-23,True
+CUST-0164,Parker Collins,parker.collins163@example.com,USA,New York,2023-04-29,True
+CUST-0165,Jasmine Peters,jasmine.peters164@example.com,Germany,Germany,2024-01-17,True
+CUST-0166,Axel Cunningham,axel.cunningham165@example.com,Canada,Alberta,2023-09-23,True
+CUST-0167,Iris Ward,iris.ward166@example.com,USA,Washington,2023-06-27,True
+CUST-0168,Remi Marchand,remi.marchand167@example.com,France,France,2023-12-29,True
+CUST-0169,Taylor Harrison,taylor.harrison168@example.com,Canada,British Columbia,2024-03-27,True
+CUST-0170,Angel Cruz,angel.cruz169@example.com,USA,Arizona,2023-05-04,False
+CUST-0171,Valeria Hoffman,valeria.hoffman170@example.com,Germany,Germany,2023-11-13,True
+CUST-0172,Austin Morrison,austin.morrison171@example.com,Canada,Ontario,2023-07-02,True
+CUST-0173,Alaia Walsh,alaia.walsh172@example.com,Ireland,Ireland,2024-02-09,True
+CUST-0174,Nash Hamilton,nash.hamilton173@example.com,USA,Georgia,2023-08-27,True
+CUST-0175,Lila Boucher,lila.boucher174@example.com,Canada,Quebec,2023-03-21,True
+CUST-0176,Mateo Ribeiro,mateo.ribeiro175@example.com,Portugal,Portugal,2023-10-19,True
+CUST-0177,Amira Williams,amira.williams176@example.com,USA,Illinois,2024-01-26,True
+CUST-0178,Felix Dubois,felix.dubois177@example.com,France,France,2023-09-05,True
+CUST-0179,Emerson Grant,emerson.grant178@example.com,Canada,Manitoba,2023-04-21,True
+CUST-0180,Dawson Hunt,dawson.hunt179@example.com,USA,Ohio,2023-12-16,True
+CUST-0181,Adam Nowak,adam.nowak180@example.com,Poland,Poland,2024-03-05,True
+CUST-0182,Summer Shaw,summer.shaw181@example.com,Canada,Alberta,2023-07-21,True
+CUST-0183,Jesus Ortiz,jesus.ortiz182@example.com,USA,Texas,2023-11-27,False
+CUST-0184,Maja Berg,maja.berg183@example.com,Sweden,Sweden,2024-02-23,True
+CUST-0185,River O'Connor,river.oconnor184@example.com,Ireland,Ireland,2023-08-13,True
+CUST-0186,Magnolia Hayes,magnolia.hayes185@example.com,USA,North Carolina,2023-05-31,True
+CUST-0187,Louis Vincent,louis.vincent186@example.com,France,France,2023-11-09,True
+CUST-0188,June Johnston,june.johnston187@example.com,Canada,Ontario,2024-01-04,True
+CUST-0189,Abel Sanders,abel.sanders188@example.com,USA,Virginia,2023-09-30,True
+CUST-0190,Bianca Marino,bianca.marino189@example.com,Italy,Italy,2023-04-16,True
+CUST-0191,Arthur Becker,arthur.becker190@example.com,Germany,Germany,2023-12-21,True
+CUST-0192,Fatima Khan,fatima.khan191@example.com,Canada,Ontario,2024-03-13,True
+CUST-0193,Kaleb Rice,kaleb.rice192@example.com,USA,Pennsylvania,2023-08-04,True
+CUST-0194,Noelle van Dijk,noelle.vandijk193@example.com,Netherlands,Netherlands,2023-06-20,True
+CUST-0195,Nicolas Roy,nicolas.roy194@example.com,Canada,Quebec,2023-11-30,True
+CUST-0196,Journee Holmes,journee.holmes195@example.com,USA,Massachusetts,2024-02-04,True
+CUST-0197,Oskar Andersen,oskar.andersen196@example.com,Denmark,Denmark,2023-07-13,False
+CUST-0198,Alina Correia,alina.correia197@example.com,Portugal,Portugal,2024-01-11,True
+CUST-0199,Colton Ford,colton.ford198@example.com,USA,Colorado,2023-09-17,True
+CUST-0200,Lina Keller,lina.keller199@example.com,Germany,Germany,2023-05-25,True
+CUST-0201,Holden Simon,holden.simon200@example.com,Canada,Ontario,2023-12-04,True
+CUST-0202,Daniela Castillo,daniela.castillo201@example.com,Spain,Spain,2024-03-18,True
+CUST-0203,Kingston Fisher,kingston.fisher202@example.com,USA,Maryland,2023-08-19,True
+CUST-0204,Rose Landry,rose.landry203@example.com,Canada,Quebec,2023-04-06,True
+CUST-0205,Leon Jaskolski,leon.jaskolski204@example.com,Poland,Poland,2023-10-31,True
+CUST-0206,Adalynn Gordon,adalynn.gordon205@example.com,USA,Indiana,2024-01-30,True
+CUST-0207,Antoine Caron,antoine.caron206@example.com,France,France,2023-09-26,True
+CUST-0208,Blake Murray,blake.murray207@example.com,Canada,Alberta,2023-06-03,False
+CUST-0209,Zoe Boyd,zoe.boyd208@example.com,USA,Wisconsin,2023-11-24,True
+CUST-0210,William Persson,william.persson209@example.com,Sweden,Sweden,2024-02-29,True
+CUST-0211,Andrea Robertson,andrea.robertson210@example.com,Canada,British Columbia,2023-07-26,True
+CUST-0212,Julian Webb,julian.webb211@example.com,USA,Missouri,2023-12-26,True
+CUST-0213,Laura Bianchi,laura.bianchi212@example.com,Italy,Italy,2024-04-03,True
+CUST-0214,Remington Burns,remington.burns213@example.com,USA,Tennessee,2023-08-30,True
+CUST-0215,Liliana Doherty,liliana.doherty214@example.com,Ireland,Ireland,2023-05-01,True
+CUST-0216,Abel Poulsen,abel.poulsen215@example.com,Denmark,Denmark,2023-10-17,True
+CUST-0217,Fiona Tremblay,fiona.tremblay216@example.com,Canada,Quebec,2024-01-24,True
+CUST-0218,Myles Daniels,myles.daniels217@example.com,USA,South Carolina,2023-09-12,True
+CUST-0219,Greyson Leclerc,greyson.leclerc218@example.com,Canada,Quebec,2023-04-26,True
+CUST-0220,Paul Lorenz,paul.lorenz219@example.com,Germany,Germany,2023-11-02,True
+CUST-0221,Hayden Fox,hayden.fox220@example.com,USA,Oklahoma,2024-02-20,True
+CUST-0222,Valerie Nunes,valerie.nunes221@example.com,Portugal,Portugal,2023-07-10,True
+CUST-0223,Theo Armstrong,theo.armstrong222@example.com,Canada,Ontario,2023-12-06,True
+CUST-0224,Sloane Olson,sloane.olson223@example.com,USA,Kansas,2024-03-24,True
+CUST-0225,Marius Hansen,marius.hansen224@example.com,Norway,Norway,2023-08-21,False
+CUST-0226,Ariana Warren,ariana.warren225@example.com,USA,Nevada,2023-06-24,True
+CUST-0227,Maxime Garnier,maxime.garnier226@example.com,France,France,2024-01-16,True
+CUST-0228,Emery Knight,emery.knight227@example.com,Canada,Nova Scotia,2023-10-22,True
+CUST-0229,Enzo Bakker,enzo.bakker228@example.com,Netherlands,Netherlands,2023-05-18,True
+CUST-0230,Jayla Stevens,jayla.stevens229@example.com,USA,Connecticut,2023-11-22,True
+CUST-0231,Ronan Ryan,ronan.ryan230@example.com,Ireland,Ireland,2024-02-14,True
+CUST-0232,Teagan Wells,teagan.wells231@example.com,Canada,Saskatchewan,2023-07-31,True
+CUST-0233,Joaquin Powell,joaquin.powell232@example.com,USA,Kentucky,2023-09-20,True
+CUST-0234,Lea Ziegler,lea.ziegler233@example.com,Germany,Germany,2024-04-07,True
+CUST-0235,Rowan Ali,rowan.ali234@example.com,Canada,Ontario,2023-05-10,True
+CUST-0236,Rafael Medina,rafael.medina235@example.com,Spain,Spain,2023-12-11,True
+CUST-0237,Lennox Gray,lennox.gray236@example.com,USA,Alabama,2024-03-09,True
+CUST-0238,Alexia Costa,alexia.costa237@example.com,Portugal,Portugal,2023-08-12,True
+CUST-0239,Milo Chan,milo.chan238@example.com,Canada,British Columbia,2023-04-13,True
+CUST-0240,Kira Meyer,kira.meyer239@example.com,Germany,Germany,2023-10-27,True
+CUST-0241,Thiago Jenkins,thiago.jenkins240@example.com,USA,Iowa,2024-01-20,True
+CUST-0242,Sienna Dubois,sienna.dubois241@example.com,Canada,Quebec,2023-06-28,False
+CUST-0243,Iker Romano,iker.romano242@example.com,Italy,Italy,2023-11-16,True
+CUST-0244,Talia Coleman,talia.coleman243@example.com,USA,New Mexico,2024-02-25,True
+CUST-0245,Arlo Pietrzak,arlo.pietrzak244@example.com,Poland,Poland,2023-07-17,True
+CUST-0246,Willa Ferguson,willa.ferguson245@example.com,Canada,Ontario,2023-12-30,True
+CUST-0247,Edward Woods,edward.woods246@example.com,USA,Arkansas,2024-03-31,True
+CUST-0248,Noa Lefebvre,noa.lefebvre247@example.com,France,France,2023-09-09,True
+CUST-0249,Finn Kelly,finn.kelly248@example.com,Ireland,Ireland,2023-05-06,True
+CUST-0250,Kinsley Day,kinsley.day249@example.com,USA,Mississippi,2023-10-01,True

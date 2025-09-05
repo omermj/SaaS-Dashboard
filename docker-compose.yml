@@ -1,0 +1,28 @@
+services:
+  db:
+    image: postgres:16
+    restart: always
+    environment:
+      - POSTGRES_DB=saas_dashboard
+      - POSTGRES_USER=saas_user
+      - POSTGRES_PASSWORD=saas_password
+    ports:
+      - "5433:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+
+  app:
+    build: .
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgres://saas_user:saas_password@db:5432/saas_dashboard
+    ports:
+      - "8501:8501"
+    volumes:
+      - .:/app
+
+volumes:
+  db_data:
+  app_data:

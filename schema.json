@@ -26,77 +26,72 @@
   },
   "dim_currency": {
     "currency_code": "string",
-    "currency_name": "string",
-    "fx_rate_to_usd": "number"
+    "currency_name": "string"
   },
   "fact_subscription_revenue": {
     "date_id": "string",
     "customer_id": "string",
     "product_id": "string",
     "billing_cycle": "string",
-    "amount": "number",
+    "amount_lcy": "number",
     "currency_code": "string",
     "country": "string"
   },
   "dim_employee": {
-    "employee_sk": "string",
-    "employee_bk": "string",
+    "employee_id": "string",
+    "employee_name": "string",
     "hire_date": "date",
     "termination_date": "date",
-    "dept_sk": "string",
+    "department_id": "string",
     "country": "string",
     "title": "string",
     "salary": "number"
   },
   "dim_department": {
-    "department_sk": "string",
+    "department_id": "string",
     "department_name": "string"
   },
   "fact_cloud_cost": {
-    "cloud_cost_sk": "string",
+    "cloud_cost_id": "string",
     "date_id": "string",
     "provider_name": "string",
-    "cost_lcy": "number",
-    "currency_code": "string",
-    "cost_usd": "number",
-    "fx_rate_used": "number"
+    "amount_lcy": "number",
+    "currency_code": "string"
   },
   "fact_payment_processing_cost": {
-    "payment_proc_cost_sk": "string",
+    "payment_proc_cost_id": "string",
     "date_id": "string",
-    "customer_sk": "string",
+    "customer_id": "string",
     "processor_name": "string",
     "transaction_id": "string",
-    "transaction_amount": "number",
-    "transaction_currency": "string",
-    "fee_amount_lcy": "number",
-    "currency_code": "string",
-    "fee_amount_usd": "number",
-    "fx_rate_used": "number"
+    "amount_lcy": "number",
+    "currency_code": "string"
   },
   "fact_other_expenses": {
-    "other_expense_sk": "string",
+    "other_expense_id": "string",
     "date_id": "string",
-    "other_expense_type_sk": "string",
+    "other_expense_type_id": "string",
     "vendor_name": "string",
     "invoice_number": "string",
     "amount_lcy": "number",
-    "currency_code": "string",
-    "amount_usd": "number",
-    "fx_rate_used": "number"
+    "currency_code": "string"
   },
   "dim_other_expense_type": {
-    "other_expense_type_sk": "string",
-    "expense_type_code": "string",
+    "other_expense_type_id": "string",
     "expense_type_name": "string",
-    "expense_category": "string",
     "description": "string"
   },
   "fact_marketing_spend": {
+    "marketing_spend_id": "string",
     "date_id": "string",
     "channel": "string",
     "campaign_id": "string",
-    "spend_amount": "number",
+    "amount_lcy": "number",
     "currency_code": "string"
+  },
+  "fact_fx_rate": {
+    "date_id": "string",
+    "currency_code": "string",
+    "rate_to_usd": "number"
   }
 }

@@ -1,0 +1,51 @@
+employee_id,employee_name,hire_date,termination_date,department_id,country,title,salary
+E1001,Isabella Rossi,20220615,,100,US,Chief Executive Officer,275000
+E1002,Liam Goldberg,20220620,,100,Canada,Chief Technology Officer,260000
+E1003,Ava Chen,20220705,,200,US,Principal Software Engineer,185000
+E1004,Noah Patel,20220711,,200,Canada,Senior Software Engineer,160000
+E1005,Emma Tremblay,20220801,,300,Canada,Head of Marketing,170000
+E1006,James Rodriguez,20220822,,310,US,Head of Sales,190000
+E1007,Olivia Kim,20220901,20231020,310,US,Account Executive,85000
+E1008,Benjamin Singh,20220912,,110,Canada,Director of Finance,165000
+E1009,Mia Nguyen,20221003,,400,US,Compliance Officer,120000
+E1010,Lucas Dubois,20221017,,200,Canada,Software Engineer,115000
+E1011,Charlotte Lee,20221107,,320,US,Customer Success Manager,78000
+E1012,Henry Wilson,20221121,,200,US,Software Engineer,120000
+E1013,Amelia Garcia,20230109,,120,US,HR Generalist,75000
+E1014,Elijah Martin,20230123,,200,Canada,Product Manager,145000
+E1015,Sophia Scott,20230206,,310,Canada,Sales Development Representative,62000
+E1016,William Green,20230221,,200,US,QA Engineer,95000
+E1017,Chloe Adams,20230313,,300,US,Content Marketing Manager,88000
+E1018,Daniel Baker,20230403,,320,Canada,Customer Support Specialist,60000
+E1019,Grace Howard,20230417,,400,US,Risk Analyst,90000
+E1020,Samuel Brooks,20230508,,200,US,Senior Software Engineer,165000
+E1021,Abigail Price,20230522,20240801,320,Canada,Customer Success Manager,80000
+E1022,David Flores,20230612,,200,US,DevOps Engineer,155000
+E1023,Emily Stewart,20230705,,130,US,Office Manager,70000
+E1024,Joseph Morris,20230718,,310,Canada,Account Executive,90000
+E1025,Victoria Kelly,20230807,,200,Canada,UI/UX Designer,110000
+E1026,Michael Sanchez,20230906,,200,US,Software Engineer,125000
+E1027,Madison Cook,20230925,,300,Canada,Digital Marketing Specialist,72000
+E1028,Jacob Bell,20231016,,320,US,Technical Support Engineer,85000
+E1029,Avery Morgan,20231106,,120,Canada,Talent Acquisition Specialist,80000
+E1030,Matthew Cooper,20231120,,200,US,Junior Software Engineer,95000
+E1031,Scarlett Reed,20240115,,110,US,Accountant,82000
+E1032,Christopher Bailey,20240205,,200,Canada,Senior Product Manager,170000
+E1033,Sofia Rivera,20240226,,310,US,Account Executive,92000
+E1034,Andrew Richardson,20240318,,200,US,Site Reliability Engineer,168000
+E1035,Ella Peterson,20240408,,400,Canada,AML Analyst,98000
+E1036,Joshua Cox,20240429,20250610,200,US,Software Engineer,130000
+E1037,Aria Grewal,20240520,,200,Canada,Software Engineer,118000
+E1038,Ryan Hughes,20240610,,320,US,Customer Support Specialist,63000
+E1039,Hannah Foster,20240701,,130,Canada,Executive Assistant,74000
+E1040,Nathan Simmons,20240722,,310,US,Sales Development Representative,65000
+E1041,Zoe Butler,20240812,,200,Canada,Product Designer,105000
+E1042,Caleb Henderson,20240903,,200,US,Data Engineer,150000
+E1043,Layla Barnes,20240923,,300,US,Social Media Manager,76000
+E1044,Isaac Coleman,20241021,,310,Canada,Enterprise Account Executive,110000
+E1045,Leah Jenkins,20241118,,400,US,Senior Compliance Manager,140000
+E1046,Owen Perry,20250113,,200,Canada,Junior DevOps Engineer,100000
+E1047,Nora Powell,20250210,,320,US,Onboarding Specialist,70000
+E1048,Wyatt Long,20250317,,200,US,Software Engineer,135000
+E1049,Stella Patterson,20250421,,100,US,Chief Operating Officer,240000
+E1050,Jack Macdonald,20250512,,200,Canada,Data Analyst,90000

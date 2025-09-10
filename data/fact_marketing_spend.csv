@@ -1,0 +1,58 @@
+marketing_spend_id,date_id,channel,campaign_id,amount_lcy,currency_code
+MS1001,20220803,Paid Search,Q3-22-Brand-Awareness,500,USD
+MS1002,20220909,Paid Social,Q3-22-Brand-Awareness,750,USD
+MS1003,20221007,Paid Search,Q4-22-Lead-Gen,1200,USD
+MS1004,20221008,Paid Social,Q4-22-LinkedIn-Targeting,1500,USD
+MS1005,20221122,Paid Search,Q4-22-Lead-Gen,1800,USD
+MS1006,20221111,Paid Social,Q4-22-LinkedIn-Targeting,2100,USD
+MS1007,20221214,Paid Search,Q4-22-Lead-Gen,2500,USD
+MS1008,20221227,Paid Social,Q4-22-LinkedIn-Targeting,2800,USD
+MS1009,20230117,Paid Search,Q1-23-Google-Scale,3500,USD
+MS1010,20230108,Paid Social,Q1-23-LinkedIn-Scale,4000,USD
+MS1011,20230209,Content Syndication,Q1-23-Fintech-Weekly,2000,USD
+MS1012,20230218,Paid Search,Q1-23-Google-Scale,3800,USD
+MS1013,20230322,Paid Search,Q1-23-Google-Scale,4200,USD
+MS1014,20230328,Paid Social,Q1-23-LinkedIn-Scale,5000,USD
+MS1015,20230418,Events & Webinars,Q2-23-Webinar-Series,3000,USD
+MS1016,20230423,Paid Social,Q2-23-Product-Launch,5500,USD
+MS1017,20230411,Paid Search,Q2-23-Product-Launch,4800,USD
+MS1018,20230504,Paid Search,Q2-23-Product-Launch,5200,USD
+MS1019,20230501,Affiliate & Partnerships,H1-23-Partner-Program,1500,USD
+MS1020,20230623,Content Syndication,Q2-23-Industry-Report,3500,USD
+MS1021,20230609,Paid Social,Q2-23-Product-Launch,6000,USD
+MS1022,20230727,Paid Search,Q3-23-Performance-Max,7000,USD
+MS1023,20230704,Paid Social,Q3-23-Retargeting,4500,USD
+MS1024,20230805,Events & Webinars,Q3-23-Conference-Sponsor,10000,USD
+MS1025,20230809,Paid Search,Q3-23-Performance-Max,7500,USD
+MS1026,20230905,Paid Social,Q3-23-Retargeting,5000,USD
+MS1027,20230919,Affiliate & Partnerships,H2-23-Partner-Program,2500,USD
+MS1028,20231015,Paid Search,Q4-23-Enterprise-Focus,8500,USD
+MS1029,20231002,Paid Social,Q4-23-C-Level-Targeting,6500,USD
+MS1030,20231124,Content Syndication,Q4-23-Gartner-Placement,5000,USD
+MS1031,20231105,Paid Search,Q4-23-Enterprise-Focus,9000,USD
+MS1032,20231201,Paid Search,Q4-23-Enterprise-Focus,11000,USD
+MS1033,20231223,Paid Social,Q4-23-C-Level-Targeting,7500,USD
+MS1034,20240121,Paid Search,2024-Global-Search,15000,USD
+MS1035,20240103,Paid Social,2024-Global-Social,12000,USD
+MS1036,20240209,Events & Webinars,Q1-24-Roadshow,8000,USD
+MS1037,20240217,Paid Search,2024-Global-Search,16000,USD
+MS1038,20240322,Paid Social,2024-Global-Social,13500,USD
+MS1039,20240321,Content Syndication,Q1-24-Forrester-Report,7500,USD
+MS1040,20240407,Paid Search,2024-Global-Search,18000,USD
+MS1041,20240410,Affiliate & Partnerships,2024-Partner-Payouts,4000,USD
+MS1042,20240517,Paid Social,2024-Video-Campaign,15000,USD
+MS1043,20240515,Events & Webinars,Q2-24-Major-Expo,25000,USD
+MS1044,20240604,Paid Search,2024-Global-Search,20000,USD
+MS1045,20240601,Paid Social,2024-Video-Campaign,16000,USD
+MS1046,20240723,Content Syndication,Q3-24-Syndication-Push,10000,USD
+MS1047,20240715,Paid Search,2024-Competitor-Campaign,12000,USD
+MS1048,20240824,Paid Social,2024-Global-Social,18000,USD
+MS1049,20240803,Affiliate & Partnerships,2024-Partner-Payouts,5500,USD
+MS1050,20240910,Paid Search,2024-Competitor-Campaign,14000,USD
+MS1051,20240909,Events & Webinars,Q3-24-User-Conference,15000,USD
+MS1052,20241006,Paid Social,Q4-24-Holiday-Push,22000,USD
+MS1053,20241020,Paid Search,Q4-24-Holiday-Push,25000,USD
+MS1054,20241126,Content Syndication,Q4-24-Final-Push,12000,USD
+MS1055,20241107,Paid Search,Q4-24-Holiday-Push,28000,USD
+MS1056,20241208,Paid Social,Q4-24-Holiday-Push,25000,USD
+MS1057,20241203,Affiliate & Partnerships,2024-Partner-Payouts,7000,USD

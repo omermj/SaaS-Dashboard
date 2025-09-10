@@ -1,0 +1,6 @@
+product_id,product_name,product_type,currency,price_monthly,price_annual
+PROD-001,LedgerLift,Accounting,USD,19.99,199.99
+PROD-002,QuantaVault,Risk,USD,29.99,299.99
+PROD-003,NovaReconcile,Accounting,USD,39.99,399.99
+PROD-004,Meridian RiskOS,Risk,USD,49.99,499.99
+PROD-005,FluxPay,Payments,USD,59.99,599.99

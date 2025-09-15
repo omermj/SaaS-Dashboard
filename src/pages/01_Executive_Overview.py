@@ -53,3 +53,5 @@ with get_conn() as conn:
 st.subheader("North Star KPIs")
 c1, c2, c3 = st.columns(3)
 c1.metric("ARR", f"${kpis['arr']:,.0f}", f"{kpis['arr_growth']:.1%}")
+c2.metric("NRR", f"{kpis['nrr']:.1%}")
+c3.metric("GRR", f"{kpis['grr']:.1%}")

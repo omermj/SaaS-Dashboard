@@ -53,8 +53,7 @@ def exec_overview_kpis(
     """Calculate executive overview KPIs."""
 
     # Get start and end months based on time_range
-
-    # If end_month is not provided, use the latest month from the data
+    ## If end_month is not provided, use the latest month from the data
     if end_month is None:
         end_month = _latest_month(
             _mrr_spine(conn, product_id, country, None, None)["month"]
@@ -108,4 +107,36 @@ def exec_overview_kpis(
     arr = curr_rev * 12
     arr_growth = ((curr_rev - prev_q_rev) / prev_q_rev) if prev_q_rev > 0 else 0.0
 
-    return dict(arr=float(arr), arr_growth=float(arr_growth))
+    # NRR/GRR from latest month flows
+    prev = mrr[mrr["month"] == prev_month][["customer_id", "mrr"]].rename(
+        columns={"mrr": "prev_mrr"}
+    )
+    curr = mrr[mrr["month"] == curr_month][["customer_id", "mrr"]].rename(
+        columns={"mrr": "curr_mrr"}
+    )
+    flows = curr.merge(prev, on="customer_id", how="outer").fillna(0.0)
+
+    starting_mrr = flows["prev_mrr"].sum()
+    churn = ((flows["prev_mrr"] > 0) & (flows["curr_mrr"] == 0)) * flows["prev_mrr"]
+    contraction = (
+        (flows["curr_mrr"] < flows["prev_mrr"]) & (flows["curr_mrr"] > 0)
+    ) * (flows["prev_mrr"] - flows["curr_mrr"])
+    expansion = ((flows["curr_mrr"] > flows["prev_mrr"]) & (flows["prev_mrr"] > 0)) * (
+        flows["curr_mrr"] - flows["prev_mrr"]
+    )
+
+    grr = (
+        (starting_mrr - churn.sum() - contraction.sum()) / starting_mrr
+        if starting_mrr > 0
+        else 0.0
+    )
+    nrr = (
+        (starting_mrr - churn.sum() - contraction.sum() + expansion.sum())
+        / starting_mrr
+        if starting_mrr > 0
+        else 0.0
+    )
+
+    return dict(
+        arr=float(arr), arr_growth=float(arr_growth), nrr=float(nrr), grr=float(grr)
+    )

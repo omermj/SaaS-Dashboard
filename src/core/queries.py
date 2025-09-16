@@ -59,3 +59,70 @@ def monthly_customer_mrr_sql(
     return sql, params
 
 
+def costs_by_month_sql(
+    start_month: Optional[str] = None, end_month: Optional[str] = None
+) -> Tuple[str, Dict]:
+    """Generate SQL to get monthly costs (COGS + OpEx) with optional date bounds."""
+
+    params: Dict = {}
+    bounds = []
+
+    if start_month:
+        bounds.append("TO_CHAR(DATE_TRUNC('month', date_id), 'YYYY-MM') >= %(start_m)s")
+        params["start_m"] = start_month
+    if end_month:
+        bounds.append("TO_CHAR(DATE_TRUNC('month', date_id), 'YYYY-MM') <= %(end_m)s")
+        params["end_m"] = end_month
+    bound = "WHERE " + " AND ".join(bounds) if bounds else ""
+
+    sql = f"""
+    WITH cogs_cloud AS (
+        SELECT TO_CHAR(DATE_TRUNC('month', date_id), 'YYYY-MM') AS month,
+            SUM(amount_lcy) AS amount
+        FROM core.fact_cloud_cost
+        {bound}
+        GROUP BY 1
+    ),
+        cogs_payment AS (
+            SELECT TO_CHAR(DATE_TRUNC('month', date_id), 'YYYY-MM') AS month,
+                SUM(amount_lcy) AS amount
+            FROM core.fact_payment_processing_cost
+            {bound}
+            GROUP BY 1
+    ), 
+        opex_others AS (
+            SELECT TO_CHAR(DATE_TRUNC('month', date_id), 'YYYY-MM') AS month,
+                SUM(amount_lcy) AS amount
+            FROM core.fact_other_expenses
+            {bound}
+            GROUP BY 1
+    ),
+        opex_marketing AS (
+            SELECT TO_CHAR(DATE_TRUNC('month', date_id), 'YYYY-MM') AS month,
+                SUM(amount_lcy) AS amount
+            FROM core.fact_marketing_spend
+            {bound}
+            GROUP BY 1
+    )
+    SELECT m.month,
+        COALESCE(cc.amount, 0) + COALESCE(pp.amount, 0) AS cogs,
+        COALESCE(ox.amount, 0) + COALESCE(mkt.amount, 0) AS opex
+    FROM (
+        SELECT DISTINCT month FROM (
+            SELECT month FROM cogs_cloud
+            UNION
+            SELECT month FROM cogs_payment
+            UNION
+            SELECT month FROM opex_others
+            UNION
+            SELECT month FROM opex_marketing
+        ) u
+    ) m
+    LEFT JOIN cogs_cloud cc ON cc.month = m.month
+    LEFT JOIN cogs_payment pp ON pp.month = m.month
+    LEFT JOIN opex_others ox ON ox.month = m.month
+    LEFT JOIN opex_marketing mkt ON mkt.month = m.month
+    ORDER BY m.month;
+    """
+
+    return sql, params

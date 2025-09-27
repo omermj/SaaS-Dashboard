@@ -52,6 +52,15 @@ def _costs_spine(conn, start_month=None, end_month=None) -> pd.DataFrame:
     return df
 
 
+def _burn_and_cash_spine(conn, month: str) -> pd.DataFrame:
+    """Get the burn and cash balance for a specific month."""
+
+    df = _read(conn, q.burn_and_cash_sql(month))
+    df["net_monthly_burn"] = df["net_monthly_burn"].astype(float).fillna(0.0)
+    df["ending_cash_balance"] = df["ending_cash_balance"].astype(float).fillna(0.0)
+    return df
+
+
 # -------------- KPI Block --------------#
 def exec_overview_kpis(
     conn,
@@ -158,20 +167,33 @@ def exec_overview_kpis(
     op_margin = (curr_rev - cogs - opex) / curr_rev if curr_rev > 0 else 0.0
 
     # Burn and Burn Multiple
-    net_new_arr = (flows["curr_mrr"].sum() - starting_mrr) * 12.0
+    net_new_arr = max((flows["curr_mrr"].sum() - starting_mrr) * 12.0, 0.0)
 
-    net_burn_monthly = (opex + cogs) - curr_rev
-    if net_burn_monthly <= 0:
+    if curr_month:
+        cash_and_burn = _burn_and_cash_spine(conn, curr_month)
+    else:
+        cash_and_burn = None
+
+    net_monthly_burn = (
+        cash_and_burn["net_monthly_burn"].iloc[0]
+        if cash_and_burn is not None and not cash_and_burn.empty
+        else 0.0
+    )
+    ending_cash_balance = (
+        cash_and_burn["ending_cash_balance"].iloc[0]
+        if cash_and_burn is not None and not cash_and_burn.empty
+        else 0.0
+    )
+
+    if net_monthly_burn <= 0:
         burn_multiple = 0.0
         runway_months = np.inf
     else:
-        burn_multiple = net_burn_monthly / net_new_arr if net_new_arr > 0 else np.inf
+        burn_multiple = net_monthly_burn / net_new_arr if net_new_arr > 0 else np.inf
         runway_months = (
-            (curr_rev - cogs - opex) / net_burn_monthly
-            if net_burn_monthly > 0
-            else np.inf
+            ending_cash_balance / net_monthly_burn if ending_cash_balance > 0 else 0.0
         )
-    runway_months = float(runway_months) if np.isfinite(runway_months) else 9999.0
+    runway_months = 9999.0 if np.isfinite(runway_months) else float(runway_months)
 
     return dict(
         arr=float(arr),
@@ -182,11 +204,8 @@ def exec_overview_kpis(
         op_margin=float(op_margin),
         burn_multiple=float(burn_multiple),
         runway_months=float(runway_months),
-        net_new_arr=float(net_new_arr),  # For debugging
-        net_burn_monthly=float(net_burn_monthly),  # For debugging
-        curr_rev=float(curr_rev),  # For debugging
-        cogs=float(cogs),  # For debugging
-        opex=float(opex),  # For debugging
+        net_monthly_burn=float(net_monthly_burn),
+        ending_cash_balance=float(ending_cash_balance),
     )
 
 

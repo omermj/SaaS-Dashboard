@@ -359,6 +359,27 @@ SET date_id = EXCLUDED.date_id,
     amount_lcy = EXCLUDED.amount_lcy,
     currency_code = EXCLUDED.currency_code;
 
+-- Table: fact_cash_balance
+TRUNCATE TABLE core.fact_cash_balance;
+WITH cleaned AS (
+  SELECT
+    TO_DATE(NULLIF(date_id, ''), 'YYYYMMDD') AS date_id,
+    NULLIF(cash_in, '')::NUMERIC(18,2) AS cash_in,
+    NULLIF(cash_out, '')::NUMERIC(18,2) AS cash_out,
+    NULLIF(cash_balance, '')::NUMERIC(18,2) AS cash_balance
+  FROM staging.fact_cash_balance
+)
+INSERT INTO core.fact_cash_balance (
+  date_id,
+  cash_in,
+  cash_out,
+  cash_balance
+)
+SELECT * FROM cleaned
+ON CONFLICT (date_id) DO UPDATE
+SET cash_in = EXCLUDED.cash_in,
+    cash_out = EXCLUDED.cash_out,
+    cash_balance = EXCLUDED.cash_balance;
 
 -- Table: fact_subscription (derived from fact_subscription_revenue)
 TRUNCATE TABLE core.fact_subscription CASCADE;
@@ -496,3 +517,4 @@ INSERT INTO core.fact_subscription_snapshot_monthly
 SELECT * FROM active
 ON CONFLICT (snapshot_month, subscription_id) DO UPDATE
 SET mrr_value = EXCLUDED.mrr_value;
+

@@ -21,36 +21,18 @@ current_month = st.sidebar.selectbox("Current Month", options=months, index=0)
 
 st.sidebar.header("Filters")
 
-product_name = st.sidebar.selectbox(
-    "Product Name",
-    options=["All"] + [p for p in products.keys()],
-    index=0,
-)
-country = st.sidebar.selectbox(
-    "Country",
-    options=["All"] + countries,
-    index=0,
-)
-time_range = st.sidebar.radio("Time Range", options=["Last 12M", "YTD", "QTD"], index=0)
 
-# Get product_id from product_name
-product_id = (
-    products.get(product_name, {}).get("product_id") if product_name != "All" else None
-)
+time_range = st.sidebar.radio("Time Range", options=["Last 12M", "YTD", "QTD"], index=0)
 
 # ---- Load Data ----
 with get_conn() as conn:
-    kpis = exec_overview_kpis(
+    global_kpis = exec_overview_kpis(
         conn,
-        product_id=product_id,
-        country=country,
         time_range=time_range,
         end_month=current_month,
     )
     arr_bridge_data = arr_bridge(
         conn,
-        product_id=product_id,
-        country=country,
         time_range=time_range,
         end_month=current_month,
     )
@@ -58,19 +40,21 @@ with get_conn() as conn:
 
 # ---- Section A: North Star KPIs ----
 st.subheader("North Star KPIs")
-c1, c2, c3 = st.columns(3)
-c1.metric("ARR", f"${kpis['arr']:,.0f}", f"{kpis['arr_growth']:.1%}")
-c2.metric("NRR", f"{kpis['nrr']:.1%}")
-c3.metric("GRR", f"{kpis['grr']:.1%}")
+c1, c2, c3, c4 = st.columns(4)
+c1.metric("ARR", f"${global_kpis['arr']:,.0f}", f"{global_kpis['arr_growth']:.1%}")
+c2.metric("NRR", f"{global_kpis['nrr']:.1%}")
+c3.metric("GRR", f"{global_kpis['grr']:.1%}")
+c4.metric("Net Monthly Burn", f"${global_kpis['net_monthly_burn']:,.0f}")
 
-c4, c5, c6 = st.columns(3)
-c4.metric("Gross Margin", f"{kpis['gross_margin']:.1%}")
-c5.metric("Op Margin", f"{kpis['op_margin']:.1%}")
-c6.metric(
+c5, c6, c7, c8 = st.columns(4)
+c5.metric("Gross Margin", f"{global_kpis['gross_margin']:.1%}")
+c6.metric("Op Margin", f"{global_kpis['op_margin']:.1%}")
+c7.metric(
     "Burn Multiple",
-    f"{kpis['burn_multiple']:.2f}",
-    f"{kpis['runway_months']:.0f} months",
+    f"{global_kpis['burn_multiple']:.2f}",
+    f"{global_kpis['runway_months']:.0f} months",
 )
+c8.metric("Ending Cash Balance", f"${global_kpis['ending_cash_balance']:,.0f}")
 
 
 # ---- Section B: ARR Bridge ----
@@ -104,3 +88,43 @@ waterfall.update_layout(
 )
 
 st.plotly_chart(waterfall, use_container_width=True)
+
+st.divider()
+
+# ---- Section C: Product KPIs ----
+st.subheader("Product KPIs")
+
+c1, c2 = st.columns(2)
+
+# Filters for product and country
+product_name = c1.selectbox(
+    "Product Name",
+    options=["All"] + [p for p in products.keys()],
+    index=0,
+)
+country = c2.selectbox(
+    "Country",
+    options=["All"] + countries,
+    index=0,
+)
+
+# Get product_id from product_name
+product_id = (
+    products.get(product_name, {}).get("product_id") if product_name != "All" else None
+)
+
+# Load product-specific KPIs if a specific product is selected
+with get_conn() as conn:
+    product_kpis = exec_overview_kpis(
+        conn,
+        product_id=product_id,
+        country=country,
+        time_range=time_range,
+        end_month=current_month,
+    )
+
+c1, c2, c3 = st.columns(3)
+
+c1.metric("ARR", f"${product_kpis['arr']:,.0f}", f"{product_kpis['arr_growth']:.1%}")
+c2.metric("NRR", f"{product_kpis['nrr']:.1%}")
+c3.metric("GRR", f"{product_kpis['grr']:.1%}")

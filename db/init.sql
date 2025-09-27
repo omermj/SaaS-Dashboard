@@ -229,6 +229,18 @@ CREATE TABLE IF NOT EXISTS core.fact_marketing_spend (
     DEFERRABLE INITIALLY DEFERRED
 );
 
+-- Table: fact_cash_balance
+CREATE TABLE IF NOT EXISTS core.fact_cash_balance (
+  cash_balance_id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  date_id DATE NOT NULL REFERENCES core.dim_date(date_id),
+  cash_in NUMERIC(18,2),
+  cash_out NUMERIC(18,2),
+  cash_balance NUMERIC(18,2) NOT NULL
+);
+-- index
+CREATE UNIQUE INDEX IF NOT EXISTS ix_cash_balance_date
+  ON core.fact_cash_balance (date_id);
+
 
 -- =========================================================
 -- STAGING TABLES
@@ -372,3 +384,10 @@ CREATE TABLE IF NOT EXISTS staging.fact_marketing_spend (
   currency_code TEXT
 );
 
+-- Table: fact_cash_balance
+CREATE TABLE IF NOT EXISTS staging.fact_cash_balance (
+  date_id TEXT,
+  cash_in TEXT,
+  cash_out TEXT,
+  cash_balance TEXT NOT NULL
+);

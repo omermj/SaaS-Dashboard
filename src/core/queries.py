@@ -126,3 +126,39 @@ def costs_by_month_sql(
     """
 
     return sql, params
+
+
+def burn_and_cash_sql(month: Optional[str] = None) -> Tuple[str, Dict]:
+
+    params: Dict = {}
+    if month:
+        params["month"] = month
+    else:
+        raise ValueError("Month parameter is required for burn and cash SQL.")
+
+    sql = """
+    WITH bounds AS (
+        SELECT
+            DATE_TRUNC('month', (%(month)s || '-01')::DATE) AS start_month,
+            (DATE_TRUNC('month', (%(month)s || '-01')::DATE) + INTERVAL '1 month - 1 day')::DATE AS end_month
+    ),
+    flows AS (
+        SELECT
+            SUM(COALESCE(fb.cash_in, 0 )) AS cash_in_m,
+            SUM(COALESCE(fb.cash_out, 0)) AS cash_out_m
+        FROM core.fact_cash_balance fb
+        JOIN bounds b ON fb.date_id BETWEEN b.start_month AND b.end_month
+    ),
+    ending AS (
+        SELECT
+            fb.cash_balance
+            FROM core.fact_cash_balance fb
+            JOIN bounds b ON fb.date_id = b.end_month
+    )
+    SELECT
+        GREATEST(flows.cash_out_m - flows.cash_in_m, 0) AS net_monthly_burn,
+        ending.cash_balance AS ending_cash_balance
+    FROM flows, ending;
+    """
+
+    return sql, params

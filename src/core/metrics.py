@@ -61,6 +61,29 @@ def _burn_and_cash_spine(conn, month: str) -> pd.DataFrame:
     return df
 
 
+def _window_bounds(end_month: str | None, time_range: str):
+    if not end_month:
+        return None, None
+
+    end_dt = pd.to_datetime(end_month)
+
+    if time_range == "Last 12M":
+        start_dt = end_dt - pd.DateOffset(months=11)
+    elif time_range == "YTD":
+        start_dt = pd.to_datetime(f"{end_dt.year}-01")
+    elif time_range == "QTD":
+        q_start = ((end_dt.month - 1) // 3) * 3 + 1
+        start_dt = pd.to_datetime(f"{end_dt.year}-{q_start:02d}")
+    else:
+        start_dt = None
+
+    start_date_for_query = (start_dt - pd.DateOffset(months=1)) if start_dt else None
+
+    to_str = lambda dt: dt.strftime("%Y-%m") if dt else None
+
+    return to_str(start_date_for_query), to_str(end_dt)
+
+
 # -------------- KPI Block --------------#
 def exec_overview_kpis(
     conn,
@@ -71,30 +94,13 @@ def exec_overview_kpis(
 ) -> Dict[str, float]:
     """Calculate executive overview KPIs."""
 
-    # Get start and end months based on time_range
-    ## If end_month is not provided, use the latest month from the data
+    # If end_month is not provided, use the latest month from the data
     if end_month is None:
         end_month = _latest_month(
             _mrr_spine(conn, product_id, country, None, None)["month"]
         )
-    start_month_dt = None
-    end_month_dt = pd.to_datetime(end_month) if end_month else None
-
-    if end_month_dt is not None:
-        if time_range == "Last 12M":
-            start_month_dt = end_month_dt - pd.DateOffset(months=11)
-        elif time_range == "YTD":
-            start_month_dt = pd.to_datetime(f"{end_month_dt.year}-01")
-        elif time_range == "QTD":
-            quarter_start_month = ((end_month_dt.month - 1) // 3) * 3 + 1
-            start_month_dt = pd.to_datetime(
-                f"{end_month_dt.year}-{quarter_start_month:02d}"
-            )
-        else:
-            start_month_dt = None
-
-    start_month = start_month_dt.strftime("%Y-%m") if start_month_dt else None
-    end_month = end_month_dt.strftime("%Y-%m") if end_month_dt else None
+    # Get start and end months based on time_range
+    start_month, end_month = _window_bounds(end_month, time_range)
 
     # Get MRR spine
     mrr = _mrr_spine(conn, product_id, country, start_month, end_month)
@@ -215,30 +221,13 @@ def arr_bridge(
 ):
     """Calculate the ARR bridge components on a monthly basis."""
 
-    # Get start and end months based on time_range
-    ## If end_month is not provided, use the latest month from the data
+    # If end_month is not provided, use the latest month from the data
     if end_month is None:
         end_month = _latest_month(
             _mrr_spine(conn, product_id, country, None, None)["month"]
         )
-    start_month_dt = None
-    end_month_dt = pd.to_datetime(end_month) if end_month else None
-
-    if end_month_dt is not None:
-        if time_range == "Last 12M":
-            start_month_dt = end_month_dt - pd.DateOffset(months=11)
-        elif time_range == "YTD":
-            start_month_dt = pd.to_datetime(f"{end_month_dt.year}-01")
-        elif time_range == "QTD":
-            quarter_start_month = ((end_month_dt.month - 1) // 3) * 3 + 1
-            start_month_dt = pd.to_datetime(
-                f"{end_month_dt.year}-{quarter_start_month:02d}"
-            )
-        else:
-            start_month_dt = None
-
-    start_month = start_month_dt.strftime("%Y-%m") if start_month_dt else None
-    end_month = end_month_dt.strftime("%Y-%m") if end_month_dt else None
+    # Get start and end months based on time_range
+    start_month, end_month = _window_bounds(end_month, time_range)
 
     prev_month = str(pd.Period(end_month, freq="M") - 1) if end_month else None
 

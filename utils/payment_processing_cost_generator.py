@@ -93,13 +93,13 @@ if __name__ == "__main__":
     try:
         # Load your subscription revenue data from a CSV file
         # Make sure the file 'fact_subscription_revenue.csv' is in the same directory as the script.
-        revenue_df_actual = pd.read_csv("../data/fact_subscription_revenue.csv")
+        revenue_df_actual = pd.read_csv("data/fact_subscription_revenue.csv")
 
         # Generate the payment processing costs
         processing_costs_df_actual = generate_processing_costs(revenue_df_actual)
 
         # Save the generated data to a new CSV file
-        output_filename = "../data/fact_payment_processing_cost.csv"
+        output_filename = "data/fact_payment_processing_cost.csv"
         processing_costs_df_actual.to_csv(output_filename, index=False)
 
         print(f"\nSuccessfully saved the generated data to '{output_filename}'")

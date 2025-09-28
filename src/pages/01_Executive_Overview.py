@@ -49,12 +49,12 @@ c4.metric("Net Monthly Burn", f"${global_kpis['net_monthly_burn']:,.0f}")
 c5, c6, c7, c8 = st.columns(4)
 c5.metric("Gross Margin", f"{global_kpis['gross_margin']:.1%}")
 c6.metric("Op Margin", f"{global_kpis['op_margin']:.1%}")
-c7.metric(
+c7.metric("Ending Cash Balance", f"${global_kpis['ending_cash_balance']:,.0f}")
+c8.metric(
     "Burn Multiple",
     f"{global_kpis['burn_multiple']:.2f}",
     f"{global_kpis['runway_months']:.0f} months",
 )
-c8.metric("Ending Cash Balance", f"${global_kpis['ending_cash_balance']:,.0f}")
 
 
 # ---- Section B: ARR Bridge ----
@@ -76,7 +76,7 @@ waterfall = go.Figure(
 )
 
 # Set y-axis to not start from 0
-y_min = 205000  # arr_bridge_data["value"].min()
+y_min = 3000000  # arr_bridge_data["value"].min()
 y_max = arr_bridge_data["value"].max()
 buffer = (y_max - y_min) * 0.1  # 10% buffer
 waterfall.update_layout(

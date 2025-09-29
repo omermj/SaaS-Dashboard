@@ -267,30 +267,29 @@ def arr_bridge(
     bridge = pd.DataFrame(
         {
             "step": [
-                "starting_mrr",
-                "churn",
-                "contraction",
-                "expansion",
-                "new_business",
-                "ending_mrr",
+                "Starting ARR",
+                "New",
+                "Expansion",
+                "Contraction",
+                "Churn",
+                "Ending ARR",
             ],
             "value": [
                 starting_mrr * 12,
-                -churn.sum() * 12,
-                -contraction.sum() * 12,
-                expansion.sum() * 12,
                 new_mrr * 12,
+                expansion.sum() * 12,
+                -contraction.sum() * 12,
+                -churn.sum() * 12,
                 ending_mrr * 12,
             ],
             "type": [
-                "step",
-                "step",
-                "step",
-                "step",
-                "step",
+                "absolute",
+                "relative",
+                "relative",
+                "relative",
+                "relative",
                 "total",
             ],
         }
     )
-
     return bridge

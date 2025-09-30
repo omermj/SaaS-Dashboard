@@ -162,3 +162,14 @@ def burn_and_cash_sql(month: Optional[str] = None) -> Tuple[str, Dict]:
     """
 
     return sql, params
+
+
+def data_bounds_sql() -> Tuple[str, Dict]:
+    """SQL to get the min and max month available in the data."""
+    sql = """
+    SELECT
+        DATE_TRUNC('month', MIN(date_id))::DATE AS min_month,
+        DATE_TRUNC('month', MAX(date_id))::DATE AS max_month
+    FROM core.dim_date;
+    """
+    return sql, {}

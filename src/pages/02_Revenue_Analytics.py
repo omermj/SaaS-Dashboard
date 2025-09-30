@@ -5,8 +5,8 @@
 # - FX Normalization: Revenue in LCY vs USD
 
 import streamlit as st
-from core.db import get_engine
-from core.dim_data import get_all_products, get_all_countries, get_all_months
+from db_engine import get_engine
+from core.metrics.dim_data import get_all_products, get_all_countries, get_all_months
 
 
 engine = get_engine()
@@ -45,7 +45,7 @@ billing_cycle_filter = st.sidebar.selectbox(
 
 
 # ----- Top Row KPIs -----
-# - Total MRR
+# - Total MRR (for the period)
 # - ARR
 # - New Logos
 # - Churned Logos

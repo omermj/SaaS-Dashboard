@@ -1,7 +1,7 @@
 import streamlit as st
-from core.db import get_engine
-from core.metrics import exec_overview_kpis, arr_bridge
-from core.dim_data import get_all_products, get_all_countries, get_all_months
+from db_engine import get_engine
+from core.metrics.metrics_executive_overview import exec_overview_kpis, arr_bridge
+from core.metrics.dim_data import get_all_products, get_all_countries, get_all_months
 from ui.components import fmt_money, fmt_pct, fmt_months, fmt_multiple, fmt_margin
 import plotly.graph_objects as go
 

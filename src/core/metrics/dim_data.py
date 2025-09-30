@@ -1,6 +1,6 @@
 import pandas as pd
 from typing import Optional, Dict
-from core.dim_queries import (
+from ..queries.queries_dim import (
     get_all_products_sql,
     get_all_countries_sql,
     get_all_months_sql,

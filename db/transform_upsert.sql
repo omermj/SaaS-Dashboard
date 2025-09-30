@@ -174,17 +174,18 @@ CREATE UNIQUE INDEX IF NOT EXISTS uq_subrev_source
 -- load
 WITH cleaned AS (
   SELECT
-    source_system,
-    source_record_id,
-    TO_DATE(NULLIF(date_id, ''), 'YYYYMMDD') AS date_id,
-    customer_id,
-    product_id,
-    billing_cycle,
-    NULLIF(amount_lcy, '')::NUMERIC(18,2) AS amount_lcy,
-    currency_code,
-    country,
-    ingest_batch_id
-  FROM staging.fact_subscription_revenue
+    r.source_system,
+    r.source_record_id,
+    TO_DATE(NULLIF(r.date_id, ''), 'YYYYMMDD') AS date_id,
+    r.customer_id,
+    r.product_id,
+    r.billing_cycle,
+    CASE WHEN r.billing_cycle = 'monthly' THEN dp.price_monthly ELSE dp.price_annual END AS amount_lcy,
+    r.currency_code,
+    r.country,
+    r.ingest_batch_id
+  FROM staging.fact_subscription_revenue r
+  LEFT JOIN core.dim_product dp ON r.product_id = dp.product_id
 )
 INSERT INTO core.fact_subscription_revenue AS t (
   source_system,

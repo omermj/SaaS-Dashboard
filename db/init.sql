@@ -155,6 +155,7 @@ CREATE UNIQUE INDEX IF NOT EXISTS uq_fact_subscription_mvp
 -- Derived Table: fact_subscription_snapshot_monthly from fact_subscription
 CREATE TABLE IF NOT EXISTS core.fact_subscription_snapshot_monthly (
   snapshot_month DATE NOT NULL,
+  billing_cycle TEXT NOT NULL,
   subscription_id BIGINT NOT NULL REFERENCES core.fact_subscription(subscription_id),
   customer_id TEXT NOT NULL,
   product_id TEXT NOT NULL,

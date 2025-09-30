@@ -4,6 +4,7 @@ from typing import Optional, Dict, Tuple
 def _filters(
     product_id: Optional[str],
     country: Optional[str],
+    billing_cycle: Optional[str],
     start_month: Optional[str],
     end_month: Optional[str],
 ) -> Tuple[str, Dict[str, str]]:
@@ -15,6 +16,9 @@ def _filters(
     if country:
         parts.append("dc.country = %(country)s")
         params["country"] = country
+    if billing_cycle:
+        parts.append("fr.billing_cycle = %(billing_cycle)s")
+        params["billing_cycle"] = billing_cycle
     if start_month:
         parts.append("to_char(date_trunc('month', dd.date), 'YYYY-MM') >= %(start_m)s")
         params["start_m"] = start_month
@@ -28,10 +32,11 @@ def _filters(
 def monthly_customer_mrr_sql(
     product_id: Optional[str] = None,
     country: Optional[str] = None,
+    billing_cycle: Optional[str] = None,
     start_month: Optional[str] = None,
     end_month: Optional[str] = None,
 ) -> Tuple[str, Dict]:
-    where, params = _filters(product_id, country, start_month, end_month)
+    where, params = _filters(product_id, country, billing_cycle, start_month, end_month)
     sql = f"""
     WITH monthly AS (
         SELECT

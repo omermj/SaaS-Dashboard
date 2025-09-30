@@ -26,7 +26,12 @@ def _prev_quarter_month(curr_month: str) -> Optional[str]:
 
 # -------------- Core Spines --------------#
 def _mrr_spine(
-    conn, product_id=None, country=None, start_month=None, end_month=None
+    conn,
+    product_id=None,
+    country=None,
+    billing_cycle=None,
+    start_month=None,
+    end_month=None,
 ) -> pd.DataFrame:
     """Get the monthly MRR spine with optional filters."""
 
@@ -36,7 +41,10 @@ def _mrr_spine(
         country = None
 
     df = _read(
-        conn, q.monthly_customer_mrr_sql(product_id, country, start_month, end_month)
+        conn,
+        q.monthly_customer_mrr_sql(
+            product_id, country, billing_cycle, start_month, end_month
+        ),
     )
     df["month"] = df["month"].astype(str)
     df["mrr"] = df["mrr"].astype(float).fillna(0.0)
@@ -108,6 +116,7 @@ def exec_overview_kpis(
     conn,
     product_id: Optional[str] = None,
     country: Optional[str] = None,
+    billing_cycle: Optional[str] = None,
     time_range: str = "Last 12M",
     end_month: Optional[str] = None,
 ) -> Dict[str, float]:
@@ -116,14 +125,14 @@ def exec_overview_kpis(
     # If end_month is not provided, use the latest month from the data
     if end_month is None:
         end_month = _latest_month(
-            _mrr_spine(conn, product_id, country, None, None)["month"]
+            _mrr_spine(conn, product_id, country, billing_cycle, None, None)["month"]
         )
 
     # Get start and end months based on time_range
     start_month, end_month = _window_bounds(conn, end_month, time_range)
 
     # Get MRR spine
-    mrr = _mrr_spine(conn, product_id, country, start_month, end_month)
+    mrr = _mrr_spine(conn, product_id, country, billing_cycle, start_month, end_month)
 
     # Month anchors
     curr_month = end_month
@@ -228,14 +237,19 @@ def exec_overview_kpis(
 
 # -------------- ARR Bridge (monthly) --------------#
 def arr_bridge(
-    conn, product_id=None, country=None, time_range="Last 12M", end_month=None
+    conn,
+    product_id=None,
+    country=None,
+    billing_cycle=None,
+    time_range="Last 12M",
+    end_month=None,
 ) -> pd.DataFrame:
     """Calculate the ARR bridge components on a monthly basis."""
 
     # If end_month is not provided, use the latest month from the data
     if end_month is None:
         end_month = _latest_month(
-            _mrr_spine(conn, product_id, country, None, None)["month"]
+            _mrr_spine(conn, product_id, country, None, None, None)["month"]
         )
     # Get start and end months based on time_range
     start_month, end_month = _window_bounds(conn, end_month, time_range)
@@ -243,7 +257,7 @@ def arr_bridge(
     prev_month = str(pd.Period(end_month, freq="M") - 1) if end_month else None
 
     # Get MRR spine
-    mrr = _mrr_spine(conn, product_id, country, start_month, end_month)
+    mrr = _mrr_spine(conn, product_id, country, billing_cycle, start_month, end_month)
     if mrr.empty:
         return pd.DataFrame()
 

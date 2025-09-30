@@ -504,6 +504,7 @@ subs AS (
 active AS (
 	SELECT 
 		m.month_start AS snapshot_month,
+    s.billing_cycle,
 		s.subscription_id,
 		s.customer_id,
 		s.product_id,
@@ -514,7 +515,7 @@ active AS (
 	AND (s.end_date::DATE IS NULL OR s.end_date::DATE >= m.month_start) 
 )
 INSERT INTO core.fact_subscription_snapshot_monthly
-  (snapshot_month, subscription_id, customer_id, product_id, mrr_value)
+  (snapshot_month, billing_cycle, subscription_id, customer_id, product_id, mrr_value)
 SELECT * FROM active
 ON CONFLICT (snapshot_month, subscription_id) DO UPDATE
 SET mrr_value = EXCLUDED.mrr_value;

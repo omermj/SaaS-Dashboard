@@ -1,10 +1,11 @@
 import streamlit as st
-from core.db import get_conn
+from core.db import get_engine
 from core.metrics import exec_overview_kpis, arr_bridge
 from core.dim_data import get_all_products, get_all_countries, get_all_months
-from ui.components import fmt_money, fmt_pct, fmt_months, fmt_multiple
+from ui.components import fmt_money, fmt_pct, fmt_months, fmt_multiple, fmt_margin
 import plotly.graph_objects as go
 
+engine = get_engine()
 
 st.set_page_config(page_title="Executive Overview", layout="wide")
 st.title("Executive Overview")
@@ -13,7 +14,7 @@ st.title("Executive Overview")
 # Get product, country and month options from the database
 @st.cache_data(ttl=600)
 def load_dim_options():
-    with get_conn() as conn:
+    with engine.begin() as conn:
         products = (
             get_all_products(conn).set_index("product_name").to_dict(orient="index")
         )
@@ -27,11 +28,12 @@ products, countries, months = load_dim_options()
 current_month = st.sidebar.selectbox("Current Month", options=months, index=0)
 
 # ---- Sidebar Filters ----
+# import debugpy; debugpy.breakpoint()
 st.sidebar.header("Filters")
 time_range = st.sidebar.radio("Time Range", options=["Last 12M", "YTD", "QTD"], index=0)
 
 # ---- Load Data ----
-with get_conn() as conn:
+with engine.begin() as conn:
     global_kpis = exec_overview_kpis(
         conn,
         time_range=time_range,
@@ -48,12 +50,12 @@ st.subheader("North Star KPIs")
 c1, c2, c3, c4 = st.columns(4)
 c1.metric("ARR", fmt_money(global_kpis["arr"]), fmt_pct(global_kpis["arr_growth"]))
 c2.metric("NRR", fmt_pct(global_kpis["nrr"]))
-# c3.metric("GRR", fmt_pct(global_kpis["grr"]))
+c3.metric("GRR", fmt_pct(global_kpis["grr"]))
 c4.metric("Net Monthly Burn", fmt_money(global_kpis["net_monthly_burn"]))
 
 c5, c6, c7, c8 = st.columns(4)
-c5.metric("Gross Margin", fmt_pct(global_kpis["gross_margin"]))
-c6.metric("Op Margin", fmt_pct(global_kpis["op_margin"]))
+c5.metric("Gross Margin", fmt_margin(global_kpis["gross_margin"]))
+c6.metric("Op Margin", fmt_margin(global_kpis["op_margin"]))
 c7.metric(
     "Burn Multiple",
     (
@@ -73,28 +75,34 @@ c8.metric("Runway Months", fmt_months(global_kpis["runway_months"]))
 
 st.write("Ending Cash Balance", f"${global_kpis['ending_cash_balance']:,.0f}")
 
+st.divider()
+
 # ---- Section B: ARR Bridge ----
 st.subheader("ARR Bridge")
 
 # Prepare data for waterfall
 steps = arr_bridge_data
-waterfall = go.Figure(
-    go.Waterfall(
-        name="ARR Bridge",
-        orientation="v",
-        measure=steps["type"],
-        x=steps["step"],
-        y=steps["value"],
-        connector={"line": {"color": "rgba(90,90,90,0.5)"}},
+
+if steps.empty:
+    st.info("No ARR bridge data available for the selected filters.")
+else:
+    waterfall = go.Figure(
+        go.Waterfall(
+            name="ARR Bridge",
+            orientation="v",
+            measure=steps["type"],
+            x=steps["step"],
+            y=steps["value"],
+            connector={"line": {"color": "rgba(90,90,90,0.5)"}},
+        )
     )
-)
-waterfall.update_layout(
-    title="ARR Waterfall Bridge",
-    showlegend=False,
-    margin=dict(l=20, r=20, t=40, b=20),
-    height=400,
-)
-st.plotly_chart(waterfall, use_container_width=True)
+    waterfall.update_layout(
+        title="ARR Waterfall Bridge",
+        showlegend=False,
+        margin=dict(l=20, r=20, t=40, b=20),
+        height=400,
+    )
+    st.plotly_chart(waterfall, use_container_width=True)
 
 st.divider()
 
@@ -121,7 +129,7 @@ product_id = (
 )
 
 # Load product-specific KPIs if a specific product is selected
-with get_conn() as conn:
+with engine.begin() as conn:
     product_kpis = exec_overview_kpis(
         conn,
         product_id=product_id,

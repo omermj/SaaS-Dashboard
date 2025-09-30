@@ -17,9 +17,12 @@ services:
     depends_on:
       - db
     environment:
-      - DATABASE_URL=postgres://saas_user:saas_password@db:5432/saas_dashboard
+      # - DATABASE_URL=postgres://saas_user:saas_password@db:5432/saas_dashboard
+      - DATABASE_URL=postgresql+psycopg2://saas_user:saas_password@db:5432/saas_dashboard
+      - DEBUGPY=0
     ports:
       - "8501:8501"
+      - "5678:5678"
     volumes:
       - .:/app
 

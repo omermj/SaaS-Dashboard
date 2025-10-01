@@ -20,10 +20,10 @@ def _filters(
         parts.append("fr.billing_cycle = %(billing_cycle)s")
         params["billing_cycle"] = billing_cycle
     if start_month:
-        parts.append("to_char(date_trunc('month', dd.date), 'YYYY-MM') >= %(start_m)s")
+        parts.append("fr.month_id >= %(start_m)s")
         params["start_m"] = start_month
     if end_month:
-        parts.append("to_char(date_trunc('month', dd.date), 'YYYY-MM') <= %(end_m)s")
+        parts.append("fr.month_id <= %(end_m)s")
         params["end_m"] = end_month
     where = (" WHERE " + " AND ".join(parts)) if parts else ""
     return where, params

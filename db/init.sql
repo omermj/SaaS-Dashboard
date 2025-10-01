@@ -111,6 +111,9 @@ CREATE TABLE IF NOT EXISTS core.fact_subscription_revenue (
   amount_lcy NUMERIC(18,2) NOT NULL,
   currency_code TEXT NOT NULL REFERENCES core.dim_currency(currency_code),
   country TEXT NOT NULL,
+  month_id DATE GENERATED ALWAYS AS (
+    MAKE_DATE(EXTRACT(YEAR FROM date_id)::INT, EXTRACT(MONTH FROM date_id)::INT, 1)
+  ) STORED,
   
   -- lineage 
   source_system TEXT,
@@ -126,19 +129,23 @@ CREATE TABLE IF NOT EXISTS core.fact_subscription_revenue (
 
 CREATE INDEX IF NOT EXISTS ix_subrev_slide
   ON core.fact_subscription_revenue (date_id, customer_id, product_id, billing_cycle);
+CREATE INDEX IF NOT EXISTS ix_subrev_cust_month ON core.fact_subscription_revenue (customer_id, month_id);
+CREATE INDEX IF NOT EXISTS ix_subrev_month ON core.fact_subscription_revenue (month_id);
 
 -- Derived Table: fact_subscription from fact_subscription_revenue
 CREATE TABLE IF NOT EXISTS core.fact_subscription (
-  subscription_id BIGSERIAL PRIMARY KEY, --Check this
+  subscription_id BIGSERIAL PRIMARY KEY,
   customer_id TEXT NULL,
   product_id TEXT NULL,
   billing_cycle TEXT NULL,
   price_per_period NUMERIC(18,2) NOT NULL,
   mrr_value NUMERIC(18,2) NOT NULL,
   currency_code TEXT NOT NULL,
-  start_date TEXT NOT NULL,
-  end_date TEXT,
-  status TEXT NOT NULL
+  start_date DATE NOT NULL,
+  end_date DATE,
+  status TEXT NOT NULL,
+
+  CONSTRAINT ck_dates CHECK (end_date IS NULL OR end_date >= start_date)
 );
 
 -- Create index

@@ -20,3 +20,12 @@ def fmt_multiple(x):
 
 def fmt_margin(x):
     return "N/A" if pd.isna(x) else fmt_pct(x)
+
+
+def fmt_number(x):
+    if pd.isna(x):
+        return "N/A"
+    elif isinstance(x, float) and (x.is_integer()):
+        return f"{int(x):,}"
+    else:
+        return f"{x:,}"

@@ -36,6 +36,7 @@ def monthly_customer_mrr_sql(
     start_month: Optional[str] = None,
     end_month: Optional[str] = None,
 ) -> Tuple[str, Dict]:
+    """Generate SQL to get monthly MRR per customer with optional filters."""
     where, params = _filters(product_id, country, billing_cycle, start_month, end_month)
     sql = f"""
     WITH monthly AS (
@@ -134,7 +135,7 @@ def costs_by_month_sql(
 
 
 def burn_and_cash_sql(month: Optional[str] = None) -> Tuple[str, Dict]:
-
+    """Generate SQL to get net monthly burn and ending cash balance for a given month."""
     params: Dict = {}
     if month:
         params["month"] = month

@@ -100,5 +100,25 @@ c4.metric(
 c5.metric(
     label="CAC Payback",
     value=fmt_months(top_row_metrics["cac_payback"]),
-    help="CAC Payback Period (in months)",
+    help="CAC Payback reflects blended company-wide marketing efficiency. Other filters (product, country, billing cycle) do not affect it.",
+)
+
+# Additional Debug / Display Metrics -- Remove later
+total_cac = top_row_metrics["total_cac"]
+avg_cac = top_row_metrics["avg_cac"]
+total_revenue_from_new_logos = top_row_metrics["total_revenue_from_new_logos"]
+total_active_months_from_new_logos = top_row_metrics[
+    "total_active_months_from_new_logos"
+]
+
+st.write("Total CAC:", fmt_money(total_cac))
+st.write("Average CAC:", fmt_money(avg_cac))
+st.write("Total Revenue from New Logos:", fmt_money(total_revenue_from_new_logos))
+st.write(
+    "Total Active Months from New Logos:",
+    fmt_months(total_active_months_from_new_logos),
+)
+st.write(
+    "Average Revenue per New Logo:",
+    fmt_money(top_row_metrics["avg_revenue_per_new_logo"]),
 )
